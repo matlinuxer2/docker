@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -e
+
+rootfsDir="$1"
+shift
+
+wget --continue -O /tmp/stage3-latest.tar.xz http://build.funtoo.org/funtoo-current/x86-32bit/i686/stage3-latest.tar.xz
+tar -C "$rootfsDir" -Jxf "/tmp/stage3-latest.tar.xz" --exclude="./dev"
+(
+	cd "$rootfsDir"
+        ls -l
+)
