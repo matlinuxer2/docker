@@ -24,7 +24,7 @@
 #
 
 docker-version	0.6.1
-FROM	ubuntu:14.04
+FROM	edos/wheezy32
 MAINTAINER	Tianon Gravi <admwiggin@gmail.com> (@tianon)
 
 # Packaged dependencies
@@ -40,13 +40,14 @@ RUN	apt-get update && apt-get install -y \
 	libapparmor-dev \
 	libcap-dev \
 	libsqlite3-dev \
-	lxc=1.0* \
+	lxc \
 	mercurial \
 	parallel \
 	reprepro \
 	ruby1.9.1 \
 	ruby1.9.1-dev \
 	s3cmd=1.1.0* \
+	ca-certificates \
 	--no-install-recommends
 
 # Get lvm2 source for compiling statically
@@ -110,4 +111,4 @@ ENV	DOCKER_BUILDTAGS	apparmor selinux
 ENTRYPOINT	["hack/dind"]
 
 # Upload docker source
-COPY	.	/go/src/github.com/docker/docker
+ADD	.	/go/src/github.com/docker/docker
