@@ -24,7 +24,7 @@
 #
 
 docker-version	0.6.1
-FROM	edos/wheezy32
+FROM	matlinuxer2/debian
 MAINTAINER	Tianon Gravi <admwiggin@gmail.com> (@tianon)
 
 # Packaged dependencies
@@ -44,9 +44,9 @@ RUN	apt-get update && apt-get install -y \
 	mercurial \
 	parallel \
 	reprepro \
-	ruby1.9.1 \
-	ruby1.9.1-dev \
-	s3cmd=1.1.0* \
+	ruby \
+	ruby-dev \
+	s3cmd \
 	ca-certificates \
 	--no-install-recommends
 
